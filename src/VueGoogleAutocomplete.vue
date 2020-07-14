@@ -134,6 +134,7 @@
           let component;
           if (this.id) component = document.getElementById(this.id);
           else component = this.$el;
+          console.log("attaching google autocomplete to", component, this.id);
 
           this.autocomplete = new google.maps.places.Autocomplete(
             component,
