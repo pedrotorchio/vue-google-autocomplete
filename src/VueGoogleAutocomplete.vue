@@ -131,11 +131,14 @@
               country: this.country
             };
           }
+          let component;
+          if (this.id) component = document.getElementById(this.id);
+          else component = this.$el;
 
           this.autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById(this.id),
-                options
-            );
+            component,
+            options
+          );
 
           this.autocomplete.addListener('place_changed', this.onPlaceChanged);
         },
