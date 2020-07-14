@@ -36,7 +36,7 @@
         props: {
           id: {
             type: String,
-            required: true
+            required: false
           },
 
           classname: String,
