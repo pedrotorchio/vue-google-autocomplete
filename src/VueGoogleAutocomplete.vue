@@ -131,13 +131,11 @@
               country: this.country
             };
           }
-          let component;
-          if (this.id) component = document.getElementById(this.id);
-          else component = this.$el;
-          console.log("attaching google autocomplete to", component, this.id);
+          const element = this.$el;
+          console.log("attaching google autocomplete to", element, this.id);
 
           this.autocomplete = new google.maps.places.Autocomplete(
-            component,
+            element,
             options
           );
 
@@ -163,7 +161,8 @@
                     this.$emit('placechanged', this.formatResult(place), place, this.id);
 
                     // update autocompleteText then emit change event
-                    this.autocompleteText = document.getElementById(this.id).value
+                    const element = this.$el;
+                    this.autocompleteText = element.value
                     this.onChange()
                 }
             },
